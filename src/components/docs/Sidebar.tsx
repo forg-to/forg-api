@@ -126,7 +126,8 @@ export function Sidebar() {
 
     return (
         <>
-            <div className="lg:hidden sticky top-0 z-50 flex items-center justify-between border-b border-border bg-sidebar px-4 py-3">
+            {/* Mobile Header (Only visible on small screens) */}
+            <div className="lg:hidden sticky top-0 z-50 flex w-full items-center justify-between border-b border-border bg-sidebar px-4 py-3">
                 <Link href="https://forg.to" target="_blank" className="flex items-center gap-2.5">
                     <Image src="/logo.png" alt="forg" width={28} height={28} className="rounded-md object-contain" />
                     <div className="flex items-center gap-1.5">
@@ -142,18 +143,20 @@ export function Sidebar() {
                 </button>
             </div>
 
+            {/* Mobile Overlay Drawer */}
             {isOpen && (
-                <div className="fixed inset-0 z-40 lg:hidden">
+                <div className="fixed inset-0 z-40 lg:hidden flex">
                     <div
                         className="fixed inset-0 bg-black/20 backdrop-blur-sm"
                         onClick={() => setIsOpen(false)}
                     />
-                    <div className="fixed inset-y-0 left-0 w-[280px] bg-sidebar shadow-xl border-r border-border">
+                    <div className="relative w-[280px] bg-sidebar shadow-xl border-r border-border h-full flex flex-col">
                         <SidebarContent />
                     </div>
                 </div>
             )}
 
+            {/* Desktop Sidebar (Only visible on large screens) */}
             <div className="hidden lg:block h-full">
                 <SidebarContent />
             </div>
