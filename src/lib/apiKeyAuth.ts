@@ -21,7 +21,7 @@ function hashKey(raw: string): string {
  */
 export async function validateApiKey(
   req: NextRequest
-): Promise<{ keyHash: string; userId: string } | NextResponse> {
+): Promise<{ keyHash: string; userId: string; rateLimit: { remaining: number; resetAt: number; limit: number } } | NextResponse> {
   const authHeader = req.headers.get("authorization");
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {

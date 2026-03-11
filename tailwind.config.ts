@@ -21,6 +21,7 @@ const config: Config = {
         sans: ["Inter", "system-ui", "sans-serif"],
         serif: ["ui-serif", "Georgia", "Cambria", '"Times New Roman"', "Times", "serif"],
         mono: ["JetBrains Mono", "monospace"],
+        bricolage: ["var(--font-bricolage)", "system-ui", "sans-serif"],
       },
       maxWidth: {
         '8xl': '88rem',

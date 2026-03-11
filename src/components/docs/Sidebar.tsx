@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useDocs } from "./DocsContext";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
@@ -46,14 +47,23 @@ export function Sidebar() {
 
     const SidebarContent = () => (
         <div className="flex h-full flex-col font-sans">
-            <div className="p-6 pb-2">
-                <Link href="/" className="flex items-center gap-2 group">
-                    <span className="text-xl font-serif font-bold tracking-tight text-foreground flex items-center gap-1.5">
-                        <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-accent group-hover:scale-105 transition-transform" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                        </svg>
-                        forg API Docs
-                    </span>
+            <div className="p-5 pb-3 border-b border-border">
+                <Link href="https://forg.to" target="_blank" className="flex items-center gap-2.5 group">
+                    <Image
+                        src="/logo.png"
+                        alt="forg"
+                        width={32}
+                        height={32}
+                        className="rounded-lg object-contain group-hover:scale-105 transition-transform"
+                    />
+                    <div className="flex items-center gap-1.5">
+                        <span className="font-bricolage font-bold text-xl tracking-tight text-foreground leading-none">
+                            Forg
+                        </span>
+                        <span className="rounded bg-accent/15 border border-accent/25 px-1.5 py-0.5 text-[10px] font-mono font-semibold text-accent leading-none">
+                            API
+                        </span>
+                    </div>
                 </Link>
             </div>
 
@@ -117,8 +127,12 @@ export function Sidebar() {
     return (
         <>
             <div className="lg:hidden sticky top-0 z-50 flex items-center justify-between border-b border-border bg-sidebar px-4 py-3">
-                <Link href="/" className="flex items-center gap-2">
-                    <span className="text-lg font-serif font-bold text-foreground">forg API Docs</span>
+                <Link href="https://forg.to" target="_blank" className="flex items-center gap-2.5">
+                    <Image src="/logo.png" alt="forg" width={28} height={28} className="rounded-md object-contain" />
+                    <div className="flex items-center gap-1.5">
+                        <span className="font-bricolage font-bold text-lg tracking-tight text-foreground leading-none">Forg</span>
+                        <span className="rounded bg-accent/15 border border-accent/25 px-1.5 py-0.5 text-[10px] font-mono font-semibold text-accent leading-none">API</span>
+                    </div>
                 </Link>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
