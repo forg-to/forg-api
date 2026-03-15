@@ -14,7 +14,6 @@ export function sanitizeUser(user: any, stats?: { products: number; updates: num
     skills: user.skills ?? [],
     socialLinks: user.socialLinks ?? [],
     openTo: user.openTo ?? null,
-    isPremium: !!user.isPremium,
     stats: stats ?? null,
     joinedAt: user.createdAt,
   };

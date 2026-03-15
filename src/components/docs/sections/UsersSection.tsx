@@ -129,7 +129,6 @@ export function UsersSection() {
                         collaborations: true,
                         mentorship: true
                     },
-                    isPremium: true,
                     stats: {
                         products: 4,
                         updates: 87,

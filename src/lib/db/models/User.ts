@@ -21,7 +21,6 @@ export interface IPublicUser extends Document {
   };
   socialLinks?: { platform: string; url: string }[];
   skills?: { name: string; category: string }[];
-  isPremium: boolean;
   status: "active" | "frozen" | "banned";
   incognitoMode?: boolean;
   createdAt: Date;
@@ -43,7 +42,6 @@ const UserSchema = new Schema<IPublicUser>(
     },
     socialLinks: [{ platform: String, url: String }],
     skills: [{ name: String, category: String }],
-    isPremium: { type: Boolean, default: false },
     status: { type: String, enum: ["active", "frozen", "banned"], default: "active" },
     incognitoMode: { type: Boolean, default: false },
   },
