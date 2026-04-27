@@ -8,8 +8,41 @@ import { UsersSection } from "@/components/docs/sections/UsersSection";
 import { ChangelogSection } from "@/components/docs/sections/ChangelogSection";
 
 export default function DocsPage() {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "forg.to",
+    url: "https://forg.to",
+    logo: "https://api.forg.to/logo.png",
+    sameAs: ["https://x.com/forg_to"],
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "forg.to API Documentation",
+    url: "https://api.forg.to",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://api.forg.to/docs?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
-    <div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <div>
       <SectionObserver>
         <IntroductionSection />
         <AuthenticationSection />
@@ -41,5 +74,6 @@ export default function DocsPage() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

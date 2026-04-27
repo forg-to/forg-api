@@ -93,9 +93,14 @@ export function Sidebar() {
                             {group.items.map((item) => {
                                 const isActive = activeSection === item.id;
                                 return (
-                                    <button
+                                    <Link
                                         key={item.id}
-                                        onClick={() => scrollToSection(item.id)}
+                                        href={`#${item.id}`}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            scrollToSection(item.id);
+                                            window.history.pushState(null, "", `#${item.id}`);
+                                        }}
                                         className={cn(
                                             "block w-full text-left px-3 py-1.5 text-sm rounded-md transition-colors",
                                             isActive
@@ -104,7 +109,7 @@ export function Sidebar() {
                                         )}
                                     >
                                         {item.label}
-                                    </button>
+                                    </Link>
                                 );
                             })}
                         </div>

@@ -1,0 +1,19 @@
+# forg.to API Documentation
+> Build on top of the build-in-public ecosystem.
+
+## Overview
+The forg.to API provides read-only access to public data about builders, products, and updates. All responses are JSON.
+
+## Base URL
+`https://api.forg.to/v1`
+
+## Key Sections
+- [Authentication](https://api.forg.to/docs#authentication): Bearer token required.
+- [Products](https://api.forg.to/docs#products): Fetch product details and updates.
+- [Users](https://api.forg.to/docs#users): Fetch builder profiles and posts.
+- [Rate Limits](https://api.forg.to/docs#rate-limits): 100 requests per minute.
+
+## Entities
+- **Builder**: A user on forg.to who builds in public.
+- **Product**: A project or startup tracked on forg.to.
+- **Update**: A milestone or post shared by a builder.
